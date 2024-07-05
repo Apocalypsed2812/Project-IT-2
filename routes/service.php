@@ -11,6 +11,7 @@ Route::post('update-account', [App\Http\Controllers\AccountController::class, 'u
 
 // Product
 Route::get('get-list-product', [App\Http\Controllers\ProductController::class, 'getListProduct']);
+Route::get('get-product-by-id', [App\Http\Controllers\ProductController::class, 'getProductById']);
 Route::post('add-product', [App\Http\Controllers\ProductController::class, 'addProduct']);
 Route::delete('delete-product/{id}', [App\Http\Controllers\ProductController::class, 'deleteProduct']);
 Route::put('update-product/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct']);

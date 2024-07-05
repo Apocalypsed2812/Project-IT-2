@@ -18,12 +18,11 @@ class AccountController extends ApiController
 
     public function getListAccount(Request $request){
         try{
-            // $result = $this->modelRepository->all();
-            $result = Account::get()->toArray();
+            $result = $this->modelRepository->all();
             return $this->sendResponse($result, true, 'List Account', 200, 100);
         }
         catch(\Exception $e){
-            return $this->sendResponse([], false, $e->getMessage, 400);
+            return $this->sendResponse([], false, $e->getMessage(), 400);
         }
     }
 

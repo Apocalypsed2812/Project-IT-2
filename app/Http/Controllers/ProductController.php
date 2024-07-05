@@ -22,7 +22,28 @@ class ProductController extends ApiController
             return $this->sendResponse($result, true, 'List Product', 200, 100);
         }
         catch(\Exception $e){
-            return $this->sendResponse([], false, $e->getMessage, 400);
+            return $this->sendResponse([], false, $e->getMessage(), 400);
+        }
+    }
+
+    public function getProductById(Request $request){
+        try{
+            $id = $request->input('id');
+
+            if(!$id){
+                return $this->sendResponse([], false, 'Id Is Required', 400);
+            }
+
+            $result = $this->modelRepository->findById($id);
+
+            if(!$result){
+                return $this->sendResponse([], false, 'Product Not Found', 400);
+            }
+
+            return $this->sendResponse($result, true, 'Product', 200, 100);
+        }
+        catch(\Exception $e){
+            return $this->sendResponse([], false, $e->getMessage(), 400);
         }
     }
 
@@ -86,7 +107,7 @@ class ProductController extends ApiController
         }
     }
 
-    public function updateAccountPost(Request $request){
+    public function updateProductPost(Request $request){
         try{
             $data = $request->all();
 

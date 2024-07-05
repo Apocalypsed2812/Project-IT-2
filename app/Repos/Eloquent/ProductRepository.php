@@ -2,7 +2,7 @@
 
 namespace App\Repos\Eloquent;
 
-use App\Models\Prodcut;
+use App\Models\Product;
 use Carbon\Carbon;
 use App\Repos\ProductRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
