@@ -24,4 +24,9 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
     {
         $this->model = $model;
     }
+
+    public function getAccountByUsername(string $username){
+        $account = $this->model->where('username', $username)->first();
+        return $account;
+    }
 }

@@ -18,5 +18,7 @@ class Account extends Model
         'email',
         'status',
         'avatar',
+        'qr_code',
+        'secret'
     ];
 }

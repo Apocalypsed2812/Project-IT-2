@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('status')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('qr_code')->nullable();
+            $table->string('secret')->nullable();
 
             $table->timestamps();
         });
