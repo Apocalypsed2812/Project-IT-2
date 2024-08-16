@@ -13,6 +13,9 @@ use App\Repos\AccountRepositoryInterface;
 use App\Repos\Eloquent\ProductRepository;
 use App\Repos\ProductRepositoryInterface;
 
+use App\Repos\Eloquent\SyncRepository;
+use App\Repos\SyncRepositoryInterface;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
         $this->app->bind(AccountRepositoryInterface::class, AccountRepository::class);
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(SyncRepositoryInterface::class, SyncRepository::class);
     }
 
     /**

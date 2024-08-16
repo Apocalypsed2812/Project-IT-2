@@ -16,3 +16,7 @@ Route::post('add-product', [App\Http\Controllers\ProductController::class, 'addP
 Route::delete('delete-product/{id}', [App\Http\Controllers\ProductController::class, 'deleteProduct']);
 Route::put('update-product/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct']);
 Route::post('update-product', [App\Http\Controllers\ProductController::class, 'updateProductPost']);
+
+// Salesforce Object
+Route::get('get-token', [App\Http\Controllers\SyncController::class, 'getToken']);
+Route::get('get-object-by-name', [App\Http\Controllers\SyncController::class, 'getDataFromObjectname']);
