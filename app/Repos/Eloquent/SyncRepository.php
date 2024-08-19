@@ -67,6 +67,7 @@ class SyncRepository extends BaseRepository implements SyncRepositoryInterface
             $response_data = $response->json();
 
             if ($response->successful()) {
+                $objectName = strtolower($objectName);
                 if($response_data['records']){
                     foreach ($response_data['records'] as $record) {
                         $insertData = [];
@@ -80,11 +81,11 @@ class SyncRepository extends BaseRepository implements SyncRepositoryInterface
                         $insertData['created_at'] = now();
                         $insertData['updated_at'] = now();
 
-                        if (\DB::table('contact')->where('Id', $record['Id'])->exists()) {
+                        if (\DB::table($objectName)->where('Id', $record['Id'])->exists()) {
                             continue;
                         }
             
-                        \DB::table('contact')->insert($insertData);
+                        \DB::table($objectName)->insert($insertData);
                     }
                 }
                 return $response_data;

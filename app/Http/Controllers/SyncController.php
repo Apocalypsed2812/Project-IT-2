@@ -41,7 +41,7 @@ class SyncController extends ApiController
                 return $this->sendResponse($result, false, $objectName . ' Incorrect Sobject', 500);
             }
 
-            return $this->sendResponse($result, true, 'List ' . $objectName, 200, 100);
+            return $this->sendResponse($result, true, 'List ' . $objectName, 200);
         }
         catch(\Exception $e){
             return $this->sendResponse([], false, $e->getMessage(), 400);
